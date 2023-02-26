@@ -109,3 +109,9 @@ a {
     color-scheme: dark;
   }
 }
+
+@layer components{
+  .icon_hover{
+    @apply hover:bg-gray-700 cursor-pointer p-2 rounded-full transition-all duration-300
+  }
+}
