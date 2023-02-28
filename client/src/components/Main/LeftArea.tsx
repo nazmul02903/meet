@@ -38,7 +38,7 @@ const LeftArea = () => {
             onClick={() => {
               if (!meetingId) return;
               const current_url = window.location.origin;
-              const replaced_url = `${current_url}?meetingId=${meetingId}`;
+              const replaced_url = `${current_url}/${meetingId}`;
               window.location.replace(replaced_url);
             }}
           >
