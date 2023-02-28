@@ -1,30 +1,16 @@
 {
   "name": "meet",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/nazmul02903/meet.git",
+  "author": "nazmul02903 <nazmulhasan02903@gmail.com>",
+  "license": "MIT",
   "dependencies": {
-    "@next/font": "13.1.6",
-    "@types/node": "18.13.0",
-    "@types/react": "18.0.28",
-    "@types/react-dom": "18.0.10",
-    "@types/react-slick": "^0.23.10",
-    "next": "13.1.6",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-icons": "^4.7.1",
-    "react-slick": "^0.29.0",
-    "slick-carousel": "^1.8.1",
-    "typescript": "4.9.5"
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "nodemon": "^2.0.20"
   },
-  "devDependencies": {
-    "autoprefixer": "^10.4.13",
-    "postcss": "^8.4.21",
-    "tailwindcss": "^3.2.6"
+  "scripts": {
+    "dev": "nodemon server/index.js"
   }
 }
