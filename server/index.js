@@ -2,10 +2,16 @@ const express = require("express");
 const { createServer } = require("http");
 const { Server } = require("socket.io");
 const dotenv = require("dotenv")
+const cors = require("cors");
 
 const app = express();
 
 dotenv.config({path: "server/config/.env"})
+
+app.use(cors({
+  origin: "https://3000-nazmul02903-meet-e30xhwixlji.ws-us89.gitpod.io",
+  credentials: true
+}));
 
 
 const httpServer = createServer(app);

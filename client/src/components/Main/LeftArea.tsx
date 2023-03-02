@@ -17,7 +17,7 @@ const LeftArea = () => {
         <div className="flex gap-2 items-center px-3 text-white bg-blue-500 rounded-md cursor-pointer" onClick={() => {
           const random_val = Math.floor(Math.random() * 100000000);
           const current_url = window.location.origin;
-          const replaced_url = `${current_url}?meetingId=${random_val}`;
+          const replaced_url = `${current_url}/${random_val}`;
           window.location.replace(replaced_url);
         }}>
           <MdVideoCall size={25} />
