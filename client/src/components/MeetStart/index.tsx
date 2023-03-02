@@ -11,9 +11,7 @@ const MeetStart = () => {
   console.log(meeting_id);
 
   useEffect(() => {
-    const socket = io(
-      "https://3001-nazmul02903-meet-e30xhwixlji.ws-us89.gitpod.io"
-    );
+    const socket = io("http://localhost:3001");
     socket.on("connect", () => {
       console.log("connected inf rontend");
     });
