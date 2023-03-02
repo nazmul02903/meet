@@ -8,13 +8,6 @@ const app = express();
 
 dotenv.config({ path: "server/config/.env" });
 
-// app.use(
-//   cors({
-//     origin: "http://localhost:3000",
-//     credentials: true,
-//   })
-// );
-
 const httpServer = createServer(app);
 const io = new Server(httpServer, {
   cors: {
