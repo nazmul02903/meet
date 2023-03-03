@@ -15,11 +15,17 @@ const io = new Server(httpServer, {
   },
 });
 
+let userConnect = [];
 io.on("connection", (socket) => {
-  console.log("socket connected", socket.id)
-  socket.on("userconnection", () => {
-    console.log("data")
-  })
+  socket.on("userconnection", (data) => {
+    userConnect.push({
+      sockedId: socket.id,
+      userId: data.userId,
+      meetingId: data.meetingId,
+    });
+    const other_user = userConnect.filter((user) => user.meetingId !== data.meetingId)
+    console.log(userConnect, other_user);
+  });
 });
 
 httpServer.listen(process.env.PORT, () =>
