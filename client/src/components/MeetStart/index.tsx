@@ -11,15 +11,15 @@ const MeetStart = () => {
   console.log(meeting_id);
 
   useEffect(() => {
-    const socket = io("http://localhost:3001");
-    socket.on("connect", () => {
-      console.log("connected inf rontend");
-    });
-    // return () => {
-    //   socket.disconnect()
-    //   console.log('Socket disconnected')
-    // }
-  }, []);
+    if (meeting_id) {
+      const socket = io(`${process.env.NEXT_PUBLIC_BACKEND}`);
+      socket.on("connect", () => {
+        console.log("connected inf rontend");
+      });
+        console.log("connected")
+        socket.emit("userconnection");
+    }
+  }, [meeting_id]);
 
   return (
     <div className="container flex flex-col justify-end mx-auto w-full h-screen">
