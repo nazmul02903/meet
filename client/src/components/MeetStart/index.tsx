@@ -4,7 +4,7 @@ import Video from "./Video";
 import { io } from "socket.io-client";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-import {v4 as uuidv4} from "uuid"
+import { v4 as uuidv4 } from "uuid";
 
 const MeetStart = () => {
   const history = useRouter();
@@ -17,10 +17,13 @@ const MeetStart = () => {
       socket.on("connect", () => {
         console.log("connected inf rontend");
       });
-        socket.emit("userconnection", {
-          userId: uuidv4(),
-          meetingId: meeting_id
-        });
+      socket.emit("userconnection", {
+        userId: uuidv4(),
+        meetingId: meeting_id,
+      });
+      socket.on("inform_others_me", (data) => {
+        console.log(data)
+      })
     }
   }, [meeting_id]);
 

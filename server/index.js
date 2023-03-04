@@ -18,13 +18,21 @@ const io = new Server(httpServer, {
 let userConnect = [];
 io.on("connection", (socket) => {
   socket.on("userconnection", (data) => {
+    const other_user = userConnect.filter(
+      (user) => user.meetingId == data.meetingId
+    );
     userConnect.push({
-      sockedId: socket.id,
+      connectionId: socket.id,
       userId: data.userId,
       meetingId: data.meetingId,
     });
-    const other_user = userConnect.filter((user) => user.meetingId !== data.meetingId)
     console.log(userConnect, other_user);
+    other_user.forEach((user)=> {
+      socket.to(user.connectionId).emit("inform_others_me", {
+        other_user: data.userId,
+        socketId: socket.id
+      })
+    })
   });
 });
 
